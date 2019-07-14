@@ -7,7 +7,7 @@ class JobController extends \yii\web\Controller
     public function actionIndex()
     {
         $name = "Eddie Chan";
-        return $this->render('index', ['name' =>$name]);
+        return $this->render('index');
     }
 
     public function actionCreate()
