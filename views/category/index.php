@@ -15,7 +15,7 @@ if(null !==$msg): ?>
     <?php  foreach ($categories as $category) : ?>
 
     <li class="list-group-item">
-        <a href="/index.php?r=job&category=<?= $category->id; ?>"><?= $category->name; ?></a>
+        <a href="/yii/job/web/index.php?r=job&category=<?= $category->id; ?>"><?= $category->name; ?></a>
     </li>
 
     <?php endforeach; ?>

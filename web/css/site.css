@@ -2,14 +2,15 @@ html,
 body {
     height: 100%;
 }
-.col-md-3{
+.col-md-3 {
     width: 24% !important;
 
 }
-.myjob{
+.myjob {
     border: 1px solid #ddd;
     margin-left: 10px;
     margin-bottom: 10px;
+    padding-bottom: 10px;
 }
 
 .wrap {

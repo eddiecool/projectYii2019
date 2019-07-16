@@ -1,58 +1,37 @@
 <?php
-/* @var $this yii\web\View */
+use yii\helpers\Html;
+use yii\widgets\LinkPager;
 ?>
 <h1 class="page-header">Jobs <a class="btn btn-primary pull-right" href="yii/job/web/index.php?r=job/create">Create</a></h1>
 
+<?php
+$msg = yii::$app->getSession()->getFlash('success');
+if(null !==$msg): ?>
+    <div class=""alert alert-success"> <?= $msg; ?></div>
+<?php endif; ?>
+
+
+<?php if (!empty($jobs)) : ?>
 <div class="row">
-    <div class="col-sm-6 col-md-3 myjob">
-        <h3>Job Title will be go here </h3>
-        <p><strong>Description:</strong>Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-            Aliquam aliquid assumenda blanditiis eum, ipsa necessitatibus tenetur voluptatem.
-            Dolorum minima optio sequi? Alias architecto atque earum magni necessitatibus officia quis ullam.</p>
-        <p><strong>City:</strong>Kowloon</p>
-        <p><strong>Address:</strong>Lai Chi Kok</p>
-        <p><strong>List on:</strong>Date wikl be go there</p>
-    </div>
+
+    <?php  foreach ($jobs as $job) : ?>
 
     <div class="col-sm-6 col-md-3 myjob">
-        <h3>Job Title will be go here </h3>
-        <p><strong>Description:</strong>Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-            Aliquam aliquid assumenda blanditiis eum, ipsa necessitatibus tenetur voluptatem.
-            Dolorum minima optio sequi? Alias architecto atque earum magni necessitatibus officia quis ullam.</p>
-        <p><strong>City:</strong>Kowloon</p>
-        <p><strong>Address:</strong>Lai Chi Kok</p>
-        <p><strong>List on:</strong>Date wikl be go there</p>
+        <h3><?= $job->title; ?></h3>
+        <p><strong>Description:</strong><?= $job->description; ?></p>
+        <p><strong>City:</strong><?= $job->city; ?></p>
+        <p><strong>Address:</strong><?= $job->address; ?></p>
+        <p><strong>List on:</strong><?= $job->create_date; ?></p>
+        <a class="btn btn-default pull-right" href="yii/job/web/index.php?r=job/details&id=<?= $job->id; ?>">Read More..</a>
     </div>
 
+    <?php endforeach; ?>
 
-    <div class="col-sm-6 col-md-3 myjob">
-        <h3>Job Title will be go here </h3>
-        <p><strong>Description:</strong>Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-            Aliquam aliquid assumenda blanditiis eum, ipsa necessitatibus tenetur voluptatem.
-            Dolorum minima optio sequi? Alias architecto atque earum magni necessitatibus officia quis ullam.</p>
-        <p><strong>City:</strong>Kowloon</p>
-        <p><strong>Address:</strong>Lai Chi Kok</p>
-        <p><strong>List on:</strong>Date wikl be go there</p>
-    </div>
-
-
-    <div class="col-sm-6 col-md-3 myjob">
-        <h3>Job Title will be go here </h3>
-        <p><strong>Description:</strong>Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-            Aliquam aliquid assumenda blanditiis eum, ipsa necessitatibus tenetur voluptatem.
-            Dolorum minima optio sequi? Alias architecto atque earum magni necessitatibus officia quis ullam.</p>
-        <p><strong>City:</strong>Kowloon</p>
-        <p><strong>Address:</strong>Lai Chi Kok</p>
-        <p><strong>List on:</strong>Date wikl be go there</p>
-    </div>
-
-    <div class="col-sm-6 col-md-3 myjob">
-        <h3>Job Title will be go here </h3>
-        <p><strong>Description:</strong>Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-            Aliquam aliquid assumenda blanditiis eum, ipsa necessitatibus tenetur voluptatem.
-            Dolorum minima optio sequi? Alias architecto atque earum magni necessitatibus officia quis ullam.</p>
-        <p><strong>City:</strong>Kowloon</p>
-        <p><strong>Address:</strong>Lai Chi Kok</p>
-        <p><strong>List on:</strong>Date wikl be go there</p>
-    </div>
 </div>
+
+<?php else : ?>
+<p class="lead">No Job to list </p>
+
+<?php endif; ?>
+
+<?= LinkPager::widget(['pagination' => $pagination]); ?>
