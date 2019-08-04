@@ -18,7 +18,16 @@ if(null !==$msg): ?>
 
     <div class="col-sm-6 col-md-3 myjob">
         <h3><?= $job->title; ?></h3>
-        <p><strong>Description:</strong><?= $job->description; ?></p>
+
+        <?php
+        $description = strip_tags($job->description);
+        if (strlen($description) > 80) {
+            $formated_des = substr($description, 0, 80);
+            $description = substr($formated_des, 0, strrpos($formated_des, ' ')  );
+        }
+        ?>
+
+        <p><strong>Description:</strong><?= $description ?></p>
         <p><strong>City:</strong><?= $job->city; ?></p>
         <p><strong>Address:</strong><?= $job->address; ?></p>
         <p><strong>List on:</strong><?= $job->create_date; ?></p>
