@@ -30,7 +30,13 @@ if(null !==$msg): ?>
         <p><strong>Description:</strong><?= $description ?></p>
         <p><strong>City:</strong><?= $job->city; ?></p>
         <p><strong>Address:</strong><?= $job->address; ?></p>
-        <p><strong>List on:</strong><?= $job->create_date; ?></p>
+
+        <?php
+        $mydate = strtotime($job->create_date);
+        $dtformat = date("F j,Y", $mydate );
+        ?>
+
+        <p><strong>List on:</strong><?= $dtformat; ?></p>
         <a class="btn btn-default pull-right" href="yii/job/web/index.php?r=job/details&id=<?= $job->id; ?>">Read More..</a>
     </div>
 
