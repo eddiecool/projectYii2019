@@ -49,6 +49,14 @@ class JobController extends \yii\web\Controller
         ]);
     }
 
+    public function actionDetails($id){
+        $job = Job::find()
+            ->where(['id' => $id ])
+            ->one();
+
+        return $this->render('details', ['job' => $job]);
+    }
+
     public function actionCreate()
     {
         return $this->render('create');

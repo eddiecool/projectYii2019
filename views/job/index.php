@@ -27,9 +27,9 @@ if(null !==$msg): ?>
         }
         ?>
 
-        <p><strong>Description:</strong><?= $description ?></p>
-        <p><strong>City:</strong><?= $job->city; ?></p>
-        <p><strong>Address:</strong><?= $job->address; ?></p>
+        <p><strong>Description: </strong><?= $description ?></p>
+        <p><strong>City: </strong><?= $job->city; ?></p>
+        <p><strong>Address: </strong><?= $job->address; ?></p>
 
         <?php
         $mydate = strtotime($job->create_date);
@@ -37,7 +37,7 @@ if(null !==$msg): ?>
         ?>
 
         <p><strong>List on:</strong><?= $dtformat; ?></p>
-        <a class="btn btn-default pull-right" href="yii/job/web/index.php?r=job/details&id=<?= $job->id; ?>">Read More..</a>
+        <a class="btn btn-default pull-right" href="index.php?r=job/details&id=<?= $job->id; ?>">Read More..</a>
     </div>
 
     <?php endforeach; ?>
