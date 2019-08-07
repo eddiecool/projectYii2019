@@ -16,6 +16,8 @@
     <?php endif; ?>
 
     <ul class="list-group">
+
+
         <?php
         if(!empty($job->create_date)) :
         $mydate = strtotime($job->create_date);
@@ -25,5 +27,17 @@
             <strong>Listing date: </strong><?= $dtformat; ?>
         </li>
         <?php endif; ?>
+
+
+        <?php
+        if(!empty($job->category->name)) :
+
+            ?>
+            <li class="list-group-item">
+                <strong>Category Name: </strong><?= $job->category->name; ?>
+            </li>
+        <?php endif; ?>
+
+
     </ul>
 </div>
