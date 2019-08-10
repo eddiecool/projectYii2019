@@ -1,3 +1,4 @@
+<div class="maincontent">
 <?php
 use yii\helpers\Html;
 use yii\widgets\LinkPager;
@@ -24,3 +25,5 @@ if(null !==$msg): ?>
 
 
 <?= LinkPager::widget(['pagination' => $pagination]); ?>
+
+</div>

@@ -57,9 +57,22 @@ class JobController extends \yii\web\Controller
         return $this->render('details', ['job' => $job]);
     }
 
-    public function actionCreate()
-    {
-        return $this->render('create');
+    public function actionCreate(){
+        $job = new Job();
+
+        if ($job->load(Yii::$app->request->post())) {
+            if ($job->validate()) {
+                // Save to DB
+                $job->save();
+                // Show Message
+                yii::$app->getSession()->setFlash('success', 'Job added successfully');
+                return $this->redirect('index.php?r=job');
+            }
+        }
+
+        return $this->render('create', [
+            'job' => $job,
+        ]);
     }
 
     public function actionEdit()

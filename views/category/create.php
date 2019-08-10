@@ -7,6 +7,8 @@ use yii\widgets\ActiveForm;
 /* @var $model app\models\Category */
 /* @var $form ActiveForm */
 ?>
+
+<div class="maincontent">
 <div class="category-create">
     <h2 class=""page-head>Add New Category</h2>
 
@@ -21,3 +23,4 @@ use yii\widgets\ActiveForm;
     <?php ActiveForm::end(); ?>
 
 </div><!-- category-create -->
+</div>

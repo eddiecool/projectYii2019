@@ -1,3 +1,5 @@
+<div class="maincontent">
+
 <a href="index.php?r=job" class="btn btn-primary"> Back to Job</a>
 
 
@@ -77,4 +79,6 @@
         <p> <?= $job->description; ?></p>
 
     </div>
+</div>
+
 </div>
